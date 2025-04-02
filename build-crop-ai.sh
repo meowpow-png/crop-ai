@@ -48,35 +48,36 @@ This ZIP archive contains a complete reflexive bootstrap of the CROP-AI system.
 It is designed for manual or automated initialization in stateless environments like GPT web sessions.
 
 --------------------------------------
-📁 Core Structure
+Core Structure
 --------------------------------------
 
 /core/
-├── instruction-parser.llm           # Defines how instruction files are parsed and executed
-├── crop-ai-bootstrap.llm            # Executable boot schema (do not use .md version)
-├── boot-report-template.llm         # Structured schema for post-boot diagnostic report
-├── instruction-index.llm            # Source of truth for all instruction modules
+- instruction-parser.llm            : Instruction file parser and executor
+- crop-ai-bootstrap.llm            : Executable bootstrap schema
+- boot-report-template.llm         : Schema for structured boot reports
+- instruction-index.llm            : Central index of instruction modules
+
 /instructions/
 EOF
 
 # Append all indexed instructions to the manifest
 grep -A 2 'files:' "$INDEX_FILE" | grep 'path:' | sed 's/.*: \/instructions\///' | while read -r FILE; do
-  echo "├── $FILE" >> "$MANIFEST"
+  echo "- $FILE" >> "$MANIFEST"
 done
 
 cat >> "$MANIFEST" <<EOF
 /seed-vault/
-└── insights/
+- insights/
 EOF
 
 # Dynamically list all insight files
 find ./seed-vault/insights -type f -name "*.md" | while read -r INSIGHT; do
   FILENAME=$(basename "$INSIGHT")
-  echo "    ├── $FILENAME" >> "$MANIFEST"
+  echo "  - $FILENAME" >> "$MANIFEST"
 done
 
 --------------------------------------
-🧠 Boot Logic
+Boot Logic
 --------------------------------------
 
 - The list of boot-critical instructions is no longer hardcoded
@@ -90,7 +91,7 @@ done
   required_at_boot: true and tier fields
 
 --------------------------------------
-🧾 Manual Boot Instructions
+Manual Boot Instructions
 --------------------------------------
 
 1. Start a new GPT session
@@ -104,15 +105,15 @@ done
    - Run integrity self-checks
    - Output structured BOOT REPORT
 
-⚠️ If boot fails, the system halts execution and requests user reinitialization.
+If boot fails, the system halts execution and requests user reinitialization.
 
----------------------------
+--------------------------------------
 BOOT STATUS: READY
----------------------------
+--------------------------------------
 EOF
 
 # === CREATE ZIP ===
 echo "Creating $ZIP_NAME..."
 zip -r "$ZIP_NAME" "$ROOT_DIR" > /dev/null
 
-echo "✅ Build complete: $ZIP_NAME is ready"
+echo "Build complete: $ZIP_NAME is ready"
