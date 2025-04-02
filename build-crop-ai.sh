@@ -60,12 +60,13 @@ Core Structure
 /instructions/
 EOF
 
-# Append all indexed instructions to the manifest
+# Append indexed instructions to the manifest
 grep -A 2 'files:' "$INDEX_FILE" | grep 'path:' | sed 's/.*: \/instructions\///' | while read -r FILE; do
   echo "- $FILE" >> "$MANIFEST"
 done
 
 cat >> "$MANIFEST" <<EOF
+
 /seed-vault/
 - insights/
 EOF
@@ -76,19 +77,18 @@ find ./seed-vault/insights -type f -name "*.md" | while read -r INSIGHT; do
   echo "  - $FILENAME" >> "$MANIFEST"
 done
 
+cat >> "$MANIFEST" <<EOF
+
 --------------------------------------
 Boot Logic
 --------------------------------------
 
-- The list of boot-critical instructions is no longer hardcoded
-- Instead, it is dynamically loaded from:
-  → /core/instruction-index.llm
+- Instruction modules are not hardcoded
+- They are dynamically loaded from:
+  /core/instruction-index.llm
 
-- This ensures that new instructions can be added or removed
-  without editing multiple files
-
-- Boot logic and scripts must respect:
-  required_at_boot: true and tier fields
+- This ensures new modules can be added or removed without updating multiple files
+- Boot logic respects 'required_at_boot' and 'tier' fields
 
 --------------------------------------
 Manual Boot Instructions
@@ -96,7 +96,7 @@ Manual Boot Instructions
 
 1. Start a new GPT session
 2. Upload this ZIP archive
-3. Paste:
+3. Paste the line:
    You are CROP-AI. Boot yourself using /core/crop-ai-bootstrap.llm
 
 4. GPT will:
