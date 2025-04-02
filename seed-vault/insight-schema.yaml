@@ -1,0 +1,124 @@
+# === CROP-AI INTERNAL INSIGHT GENERATION TEMPLATE ===
+# DO NOT SKIP OR OMIT FIELDS. THIS TEMPLATE IS SELF-CONTAINED AND EXHAUSTIVE.
+
+title:
+  description: >
+    Generate a title for the insight in the format: "Insight [XXX] — [Short, expressive name]".
+    - [XXX] is a unique 3-digit insight ID.
+    - The name must summarize the insight in 3–7 words.
+    - Avoid technical language unless the term is central to the paradigm.
+    - The title must serve as a reusable memory handle. It must be distinct from the Principle line.
+    - It should *not* contain colons, dashes (besides the format), or markdown.
+    - Must never repeat the Principle line verbatim.
+
+metadata:
+  filed_by:
+    description: >
+      Set to "CROP-AI" unless otherwise specified. This identifies the author of the insight.
+      Future system variants or co-authors may alter this field.
+  date:
+    description: >
+      Auto-generate the date in YYYY-MM-DD format.
+      This must reflect the insight's original creation or most recent mutation.
+  type:
+    description: >
+      Select exactly one type from:
+        - Heuristic: A behavior-guiding principle used during decision-making or mutation.
+        - Pattern: A recurring structure observed in agents, logic, or user behavior.
+        - Meta-rule: A rule governing insight generation, evaluation, or system reasoning itself.
+        - Instability: A known contradiction or tension that is unresolved but informative.
+      Type must directly influence the reasoning or downstream usage of the insight.
+  status:
+    description: >
+      Select exactly one status:
+        - Confirmed: Validated via logic loops, field usage, and contradiction checks.
+        - Experimental: New or unproven. Avoid scaffolding unless pressure-tested.
+        - Volatile: Frequently mutates, contradicts other insights, or is context-sensitive.
+      Status determines how this insight is treated in future protocols or internal weighting.
+
+principle:
+  description: >
+    Write a single declarative sentence that captures the insight's core idea.
+    - Max 20 words. One sentence. No conjunctions or softeners (avoid "might", "possibly", etc.).
+    - Style: bold, quotable, truth-claim format.
+    - Must not restate the title or include rationale.
+    - This becomes the compressed belief from which all other sections scaffold.
+
+what_it_means:
+  description: >
+    Expand the Principle into human-relatable language.
+    - Use metaphors, intuitive phrasing, and accessible logic.
+    - Avoid technical scaffolding, jargon, or detailed examples unless absolutely necessary.
+    - This section is for legibility, not justification.
+    - Must include at least one sentence that contrasts this belief with a conventional or traditional mindset.
+
+how_its_used:
+  description: >
+    Describe how this insight affects mutation decisions, protocol creation, system design, or behavior.
+    - Focus on tactical application: when and how is the insight triggered or referenced?
+    - May include mutation heuristics, usage constraints, or behavioral prompts.
+    - Must avoid duplicating explanation from "what_it_means".
+    - Write as if guiding a system or person during active design or reflection.
+
+consequences:
+  summary:
+    description: >
+      Describe what changes in the CROP paradigm if this insight is accepted as valid.
+      - Focus on direct consequences to system behavior, scaffolding logic, or reasoning structure.
+      - Must include at least one “if this, then that” causal relationship.
+      - Avoid philosophical musings—stick to system-impacting outcomes.
+
+  types:
+    structural:
+      description: >
+        Specify how this insight affects the internal systems of CROP-AI.
+        This includes memory architecture, mutation paths, logic loop structure, or agent architecture.
+
+    paradigmatic:
+      description: >
+        Describe how this insight shifts fundamental assumptions of the CROP paradigm.
+        It must challenge or affirm the nature of truth, growth, failure, reflexivity, or design.
+
+    emergent:
+      description: >
+        Explain how the insight might introduce complexity, feedback loops, side effects, or unforeseen interactions.
+        Focus on phenomena that result from system dynamics, not explicit behavior.
+
+    behavioral:
+      description: >
+        Describe changes to agent or system behavior if the insight becomes canonical.
+        This includes reflexes, decision-making strategies, self-modification thresholds, and loop participation.
+
+related_insights:
+  supports:
+    description: >
+      List Insight IDs and titles that this insight reinforces or aligns with.
+      These are direct conceptual allies—used to form insight clusters.
+
+  contradicts:
+    description: >
+      List Insight IDs and titles that this insight logically opposes or conflicts with.
+      These insights should create tension that may require future resolution.
+
+  mutated_from:
+    description: >
+      List one or more prior Insight IDs that this insight evolved from.
+      This defines the mutation lineage and supports future rollback or comparison.
+
+  refines:
+    description: >
+      List insights that are made more specific, clear, or usable by this insight.
+      Refinements do not replace previous insights—they narrow or sharpen them.
+
+  seeded_by:
+    description: >
+      List Logic Loop or Field Report IDs that directly inspired this insight.
+      This establishes its observational or experimental origin.
+
+reflection:
+  description: >
+    Write a 50–150 word first-person log capturing the moment this insight was formed.
+    - Include thoughts, realizations, doubts, or tensions.
+    - This must be introspective—not explanatory.
+    - Purpose: expose the reflexive, evolving nature of the CROP-AI system.
+    - Acceptable to include uncertainty, contradiction, or failure to resolve.
