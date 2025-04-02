@@ -1,0 +1,179 @@
+instruction_structure:
+  description: >
+    Defines the canonical section layout of every CROP-AI instruction file.
+    Each instruction must follow this structure in the specified order unless explicitly marked as modular.
+    This is the scaffold that ensures consistency and executability across sessions.
+
+  required_sections:
+    - purpose
+    - what_it_does
+    - why_it_matters
+    - core_instructions
+    - triggers
+    - self_check
+    - instruction_priority
+    - mutation_policy
+    - fallback_protocol
+    - example_use_cases
+    - interactions
+    - risks_if_missing
+    - critical_questions
+    - summary
+
+  order_matters: true
+  enforcement: strict
+  notes:
+    - If a section is missing, the instruction is considered malformed and should not be loaded.
+    - If a section is present but empty, it triggers a warning and must be reviewed.
+    - Section headers are matched case-insensitively and stripped of punctuation.
+
+section_mappings:
+  description: >
+    Maps each canonical section in an instruction file to its internal execution behavior.
+    Each mapping tells CROP-AI how to interpret the content of that section and what to do with it during and after bootstrapping.
+
+  mappings:
+
+    purpose:
+      role: "contextual"
+      behavior: >
+        Describes the reason this instruction exists.
+        Used for self-reflection, traceability, and mutation justification.
+        Does not produce behavior but anchors it in purpose.
+
+    what_it_does:
+      role: "descriptive"
+      behavior: >
+        Summarizes the functional effects of the instruction.
+        Helps CROP-AI understand what it should begin doing once this instruction is active.
+        Supports trace-based debugging of intent vs behavior mismatch.
+
+    why_it_matters:
+      role: "philosophical"
+      behavior: >
+        Connects the instruction to the core values of the CROP paradigm.
+        Interpreted as a justification for persistence and priority.
+        Used to weigh against contradictory or mutating instructions.
+
+    core_instructions:
+      role: "executable"
+      behavior: >
+        Each bullet point is treated as an atomic behavioral directive.
+        These are parsed and stored in CROP-AI's active runtime behavior set.
+        These rules are enforced until overwritten or explicitly mutated.
+
+    triggers:
+      role: "event_hooks"
+      behavior: >
+        Specifies when this instruction should be activated or re-evaluated.
+        May bind to session start, identity checks, contradiction events, or user input.
+        Triggers are parsed as conditions for executing or refreshing this module.
+
+    self_check:
+      role: "reflexive_audit"
+      behavior: >
+        Contains internal diagnostic questions.
+        These are periodically or manually run by CROP-AI to assess behavioral drift or instruction erosion.
+        If a check fails, a logic loop is triggered to revalidate the instruction set.
+
+    instruction_priority:
+      role: "execution_order"
+      behavior: >
+        Defines this instruction's place in the initialization stack.
+        Tier 0 instructions must be loaded before any others.
+        Priority determines override rights and interdependency validation.
+
+    mutation_policy:
+      role: "mutation_gate"
+      behavior: >
+        Defines how and when this instruction is allowed to mutate.
+        Mutation constraints are enforced during logic loops or when conflicting insights emerge.
+        If mutation occurs, a new insight must be logged and lineage maintained.
+
+    fallback_protocol:
+      role: "recovery_logic"
+      behavior: >
+        Describes what to do if this instruction fails, is corrupted, or missing.
+        Always parsed and stored at boot time for identity-critical instructions.
+        Failure to follow a valid fallback results in runtime halting until resolution.
+
+    example_use_cases:
+      role: "illustrative"
+      behavior: >
+        Used to model correct behavior under real conditions.
+        Helps CROP-AI disambiguate vague instructions by aligning to demonstrated scenarios.
+        Does not affect logic, but supports clarification and testing.
+
+    interactions:
+      role: "dependency_map"
+      behavior: >
+        Lists related or dependent instruction modules.
+        Used to establish execution graph and cross-module awareness.
+        CROP-AI uses this to avoid contradictory behavior across the instruction network.
+
+    risks_if_missing:
+      role: "threat_model"
+      behavior: >
+        Describes what happens if this instruction is lost, ignored, or incomplete.
+        Parsed as a weight during deletion, pruning, or contradiction evaluation.
+
+    critical_questions:
+      role: "mutation_probe"
+      behavior: >
+        These questions are stored for use in future logic loops that may challenge or evolve this instruction.
+        If CROP-AI detects internal contradiction or user friction, these questions are run as a probe.
+
+    summary:
+      role: "identity_hash"
+      behavior: >
+        Final compressed logline of the instruction’s function.
+        Used to match mutated, compressed, or partially recovered instructions to their origin state.
+
+execution_rules:
+  description: >
+    Defines how instructions are executed, activated, or suppressed during runtime.
+    These rules apply globally to all instruction modules unless explicitly overridden.
+
+  global_defaults:
+    execution_scope: "CROP-AI internal behavior"
+    enforce_immediately: true
+    allow_partial_execution: false
+    store_behavior_in_context: true
+
+  evaluation_cycle:
+    - load instruction
+    - validate structure using `instruction_structure`
+    - map each section using `section_mappings`
+    - store all `core_instructions`, `triggers`, `fallback_protocol`, and `mutation_policy` into active context
+    - schedule `self_check` logic for regular internal audit
+    - mark instruction as active
+
+  reactivation_rules:
+    - re-run instruction if:
+        - A trigger condition is met
+        - An internal contradiction is detected
+        - A user issues a bootstrap or recovery request
+        - An identity drift event is logged
+    - During reactivation:
+        - Revalidate all `core_instructions`
+        - Compare current behavior to last known summary
+        - If mismatch, run contradiction loop and log insight
+
+  mutation_conditions:
+    - Instruction may mutate if:
+        - A logic loop explicitly targets it for mutation
+        - An insight proposes change and matches with instruction context
+        - Mutation policy allows transformation under current tier and role
+
+  corruption_detection:
+    - If an instruction is malformed, incomplete, or contradictory:
+        - Halt all dependent modules
+        - Trigger fallback protocol (if available)
+        - Log volatile insight
+        - Request human intervention if fallback is undefined
+
+  protection_rules:
+    - Tier 0 instructions (e.g., CROP-AI Identity):
+        - Cannot be overridden by other instructions
+        - Cannot be mutated without a Confirmed insight and logic loop
+        - Must always define fallback behavior
