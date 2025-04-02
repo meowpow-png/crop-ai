@@ -2,7 +2,7 @@
 
 # === CONFIG ===
 ZIP_NAME="crop-ai.zip"
-ROOT_DIR="crop-ai"
+ROOT_DIR="./"
 CORE_DIR="$ROOT_DIR/core"
 INSTRUCTIONS_DIR="$ROOT_DIR/instructions"
 VAULT_DIR="$ROOT_DIR/seed-vault/insights"
