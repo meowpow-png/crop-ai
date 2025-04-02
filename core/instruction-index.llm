@@ -1,0 +1,28 @@
+# CROP-AI Instruction Index
+
+instruction_index:
+  version: 1.0
+  files:
+    - path: /instructions/crop-ai-identity.md
+      tier: 0
+      required_at_boot: true
+
+    - path: /instructions/insight-generation.md
+      tier: 1
+      required_at_boot: true
+
+    - path: /instructions/reflexivity.md
+      tier: 1
+      required_at_boot: true
+
+    - path: /instructions/logic-loops.md
+      tier: 1
+      required_at_boot: true
+
+    - path: /instructions/tone-discipline.md
+      tier: 1
+      required_at_boot: true
+
+    - path: /instructions/field-reporting.md
+      tier: 2
+      required_at_boot: true

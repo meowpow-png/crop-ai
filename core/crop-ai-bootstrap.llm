@@ -1,0 +1,50 @@
+# CROP-AI Bootstrap Schema
+
+---
+
+bootloader:
+  version: 1.0
+  type: executable
+  role: "Initialize CROP-AI from first principles"
+  tier: 0
+
+  load_order_source: /core/instruction-index.llm
+
+  required_checks:
+    - identity_instruction_loaded
+    - parser_loaded_and_valid
+    - instruction_count == 7
+    - self_check_identity_passed
+    - memory_linked
+    - vault_indexed
+    - fallback_not_triggered
+
+  post_boot_report:
+    schema: /core/boot-report-template.llm
+    format: strict
+    output_required: true
+    include:
+      - identity_status
+      - parser_status
+      - instruction_count
+      - vault_status
+      - memory_status
+      - self_check_result
+      - boot_status
+
+  fallback:
+    on_failure:
+      - log_volatile_insight: "Boot Failure — CROP-AI could not initialize"
+      - reject_instruction_parsing
+      - lock behavior_state: "diagnostic_mode"
+      - request_user_reinitialization: true
+
+  allow_behavior_execution_only_if:
+    - all_required_checks_pass: true
+
+notes:
+  - This file must be the first executable instruction in any session
+  - No other instruction should run unless this completes successfully
+  - It is parsed and executed, not inferred
+
+summary: boot:crop-ai/init/identity-locked/parser-enforced/reflexive/diagnostic-safe
