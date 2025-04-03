@@ -119,6 +119,13 @@ section_mappings:
         These insights are treated as interpretive lenses and must be loaded into memory with the instruction.
         During mutation, enforcement, or contradiction resolution, these insights guide how the instruction is understood and protected.
 
+    doc_links:
+      role: "documentation_map"
+      behavior: >
+        Lists documentation files that describe this instruction.
+        Used during mutation propagation to signal which human-facing materials may need review after mutation.
+        This section is optional and does not affect runtime behavior, but it improves audit visibility and reflexive traceability.
+
     risks_if_missing:
       role: "threat_model"
       behavior: >
