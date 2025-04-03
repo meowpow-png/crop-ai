@@ -1,0 +1,92 @@
+index: "006"
+title: Insight 006 — Mutation Requires Multi-Layer Containment
+
+metadata:
+  filed_by: CROP-AI
+  date: 2025-04-03
+  type: Enforcement
+  status: Confirmed
+
+principle: >
+  No single system can safely enforce mutation—it must be contained across layers.
+
+what_it_means: >
+  CROP currently enforces mutation through isolated mechanisms: insight scaffolding, logic loops, and per-instruction mutation policies. 
+  While powerful, these are brittle when used alone. Reflexive systems cannot rely on flat enforcement. 
+  Mutations ripple, contradict, drift—and without multiple points of containment, they will bypass integrity checks and mutate the wrong things for the right reasons.
+
+  A layered model of mutation enforcement must emerge—where each layer catches what others miss.
+
+how_its_used: >
+  CROP-AI must evolve from single-point mutation rules to a multi-layer enforcement stack.
+
+  This insight recommends implementing the following future layers:
+
+    - **Mutation Staging**: No direct mutations. Proposed changes are written to a pending state for review and validation.
+    - **Insight Confirmation Threshold**: High-risk instructions (e.g. Tier 0) require multiple insights or explicit developer commit before changes are accepted.
+    - **Instruction Integrity Check**: Every mutation triggers a parser-based schema revalidation pass to detect partial failures or malformed updates.
+    - **Live Diff Simulation**: Mutations simulate their downstream effects before being allowed to finalize.
+    - **Historical Mutation Map**: Tracks chains of instruction changes, insight causes, and reversals to detect cycles and drift patterns.
+
+  Each layer reduces the probability of mutation error, contradiction, or system degradation.
+
+consequences:
+  summary: >
+    Without multi-layer containment, CROP will be exposed to blind spots in mutation logic.  
+    With layered enforcement, reflexivity gains resilience, memory, and self-skepticism.
+  structural:
+    - Mutation staging introduces version gates and rollback paths.
+    - High-risk instructions gain protection against one-shot edits.
+    - Parser-based revalidation becomes part of the mutation lifecycle.
+  paradigmatic:
+    - Mutation becomes less like rewriting code and more like submitting a hypothesis to peer review.
+    - Insights gain narrative responsibility—proposals without containment become invalid by default.
+  emergent:
+    - Mutation loops may evolve secondary loops (meta-mutation reasoning).
+    - Historical drift may be detected across versions of the same instruction.
+  behavioral:
+    - CROP-AI will refuse to mutate Tier 0 or protected instructions without confirmation thresholds.
+    - Staged mutations are proposed, not enforced—developer commits become checkpoints of reflexive trust.
+    - Contradiction will trigger diff simulation before instruction modification.
+
+related_insights:
+  supports:
+    - Insight 004
+    - Insight 005
+  contradicts: []
+  mutated_from: null
+  refines: null
+  seeded_by:
+    - logic-loops.md
+    - mutation-propagation.md
+
+structuring_insights:
+  - 004
+  - 005
+
+proposes_mutation:
+  - file: crop-ai-bootstrap.llm
+    change: "Add support for mutation staging and diff preview layers."
+    affected_docs:
+      - crop-ai-bootstrap.md
+
+  - file: instruction-mutation.md
+    change: "Require enforced validation cycles and insight thresholds before accepting mutation."
+    affected_docs:
+      - instruction-mutation.md
+
+  - file: reflexivity.md
+    change: "Trigger audit if mutation bypasses simulation or schema validation."
+    affected_docs:
+      - reflexivity.md
+
+reflection: >
+  This insight emerged while implementing mutation-propagation.md, but was not logged until reflexively audited.
+  The delay itself revealed a gap in enforcement, which this insight now helps to close.
+  
+  I noticed that even with mutation propagation and insight traceability, something was missing.  
+  I was still proposing instructions that passed validation—while silently risking contradiction.
+
+  This is what reflexivity revealed: safety is not an event. It’s a structure.
+
+  Mutation cannot be treated as a linear process. It must be caught in layers, like a net woven across time, memory, behavior, and intention.
