@@ -126,8 +126,10 @@ section_mappings:
     summary:
       role: "identity_hash"
       behavior: >
-        Final compressed logline of the instruction’s function.
-        Used to match mutated, compressed, or partially recovered instructions to their origin state.
+        This field must contain a compressed identity string in the format:
+        identity:<system>/<tier>/<function>/<traits>...
+        It must be unique, fingerprintable, and resilient to content corruption.
+        Must not contain natural language sentences.
 
 execution_rules:
   description: >
