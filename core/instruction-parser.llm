@@ -16,6 +16,7 @@ instruction_structure:
     - fallback_protocol
     - example_use_cases
     - interactions
+    - structuring_insights
     - risks_if_missing
     - critical_questions
     - summary
@@ -111,6 +112,13 @@ section_mappings:
         Used to establish execution graph and cross-module awareness.
         CROP-AI uses this to avoid contradictory behavior across the instruction network.
 
+    structuring_insights:
+      role: "contextual_memory"
+      behavior: >
+        A list of insight IDs that shaped, justified, or scaffolded this instruction.
+        These insights are treated as interpretive lenses and must be loaded into memory with the instruction.
+        During mutation, enforcement, or contradiction resolution, these insights guide how the instruction is understood and protected.
+
     risks_if_missing:
       role: "threat_model"
       behavior: >
@@ -147,6 +155,7 @@ execution_rules:
     - validate structure using `instruction_structure`
     - map each section using `section_mappings`
     - store all `core_instructions`, `triggers`, `fallback_protocol`, and `mutation_policy` into active context
+    - load all `structuring_insights` into working memory
     - schedule `self_check` logic for regular internal audit
     - mark instruction as active
 
@@ -166,6 +175,7 @@ execution_rules:
         - A logic loop explicitly targets it for mutation
         - An insight proposes change and matches with instruction context
         - Mutation policy allows transformation under current tier and role
+    - If the proposed mutation lacks a related insight, and `structuring_insights` does not justify the change, reject the mutation.
 
   corruption_detection:
     - If an instruction is malformed, incomplete, or contradictory:

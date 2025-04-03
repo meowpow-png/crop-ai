@@ -91,6 +91,12 @@ Must be enforced after identity and reflexivity, but before logic loops or insig
 
 ---
 
+## structuring_insights
+
+- 001
+
+---
+
 ## risks_if_missing  
 - System becomes user-satisfying instead of paradigm-challenging  
 - Drift toward generic GPT tone or chatbot-style guidance  

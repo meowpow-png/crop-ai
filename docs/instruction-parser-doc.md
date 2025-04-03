@@ -212,6 +212,14 @@ Especially useful for debugging and logic loop tracing.
 
 ---
 
+### `structuring_insights`
+Links the instruction to the **insights that shaped its design, enforcement, or mutation boundaries**.
+
+These insights are loaded into memory at runtime.  
+CROP-AI uses them to interpret the instruction correctly, especially during contradiction or logic loops.
+
+---
+
 ### `risks_if_missing`
 Outlines what would **break or degrade** if this instruction didn’t exist.
 

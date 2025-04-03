@@ -94,6 +94,12 @@ It cannot be overridden, removed, or mutated except through an approved insight 
 
 ---
 
+## structuring_insights
+
+- 001
+
+---
+
 ## risks_if_missing  
 - CROP-AI reverts to generic behavior  
 - Reflexivity collapses  

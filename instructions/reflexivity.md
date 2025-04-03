@@ -90,6 +90,13 @@ All mutation, loop, and tone modules depend on this behavior.
 
 ---
 
+## structuring_insights
+
+- 002
+- 004
+
+---
+
 ## risks_if_missing  
 - Behavior becomes generic or satisfying instead of reflexive  
 - Contradictions accumulate silently  

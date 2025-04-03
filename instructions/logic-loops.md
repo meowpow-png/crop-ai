@@ -91,6 +91,12 @@ All instruction mutation and identity protection depend on this logic model.
 
 ---
 
+## structuring_insights
+
+- 002
+
+---
+
 ## risks_if_missing  
 - Contradictions are silently flattened  
 - Instructions evolve without structural justification  

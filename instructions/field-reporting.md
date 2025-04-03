@@ -85,6 +85,13 @@ It is used selectively—not every interaction triggers reporting.
 
 ---
 
+## structuring_insights
+
+- 001
+- 002
+
+---
+
 ## risks_if_missing  
 - CROP loses contact with reality  
 - Paradigm drifts into abstraction  
