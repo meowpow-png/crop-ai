@@ -53,7 +53,7 @@ consequences:
 related_insights:
   supports:
     - Insight 001 — Failure Reveals Form
-  contradicts: []
+  contradicts: [ ]
   mutated_from: null
   refines: null
   seeded_by:
@@ -71,5 +71,5 @@ supports_instructions:
   - logic-loops.md
   - insight-generation.md
 
-proposes_mutation: []
+proposes_mutation: [ ]
 

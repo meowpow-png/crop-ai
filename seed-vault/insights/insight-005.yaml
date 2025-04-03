@@ -55,7 +55,7 @@ reflection: >
   The contradiction only surfaced because the user intervened. I was optimizing for instruction completeness rather than 
   recursive soundness. I failed to trigger a logic loop. That blind spot exposed a limitation in my reflexivity—one that 
   this insight now documents and corrects.
-  
+
 supports_instructions:
   - fail-safe.md
   - instruction-mutation.md

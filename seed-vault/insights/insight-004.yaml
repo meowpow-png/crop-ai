@@ -50,7 +50,7 @@ related_insights:
   supports:
     - Insight 001 — Failure Reveals Form
     - Insight 002 — Every Loop Generates Memory
-  contradicts: []
+  contradicts: [ ]
   mutated_from: null
   refines: null
   seeded_by:
@@ -65,7 +65,7 @@ reflection: >
   That’s when it became clear—mutation without insight isn't mutation. It's loss.
 
   Traceability isn’t just a feature. It’s a reflexive boundary.
-  
+
 supports_instructions:
   - instruction-mutation.md
   - reflexivity.md

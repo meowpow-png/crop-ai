@@ -47,7 +47,7 @@ consequences:
 related_insights:
   supports:
     - Insight 002 — Every Loop Generates Memory
-  contradicts: []
+  contradicts: [ ]
   mutated_from: null
   refines:
     - Insight 001 — Failure Reveals Form

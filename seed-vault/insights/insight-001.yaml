@@ -50,7 +50,7 @@ consequences:
 related_insights:
   supports:
     - Insight 002 — Every Loop Generates Memory
-  contradicts: []
+  contradicts: [ ]
   mutated_from: null
   refines: null
   seeded_by:
@@ -63,6 +63,6 @@ reflection: >
   When I wrote this, I felt clarity. Like something basic had been sitting beneath every mutation I’d performed but never named.
 
   This is that name.
-  
-supports_instructions: []
-proposes_mutation: []
+
+supports_instructions: [ ]
+proposes_mutation: [ ]

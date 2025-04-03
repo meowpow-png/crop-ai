@@ -53,7 +53,7 @@ related_insights:
   supports:
     - Insight 004
     - Insight 005
-  contradicts: []
+  contradicts: [ ]
   mutated_from: null
   refines: null
   seeded_by:
