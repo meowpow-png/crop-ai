@@ -409,3 +409,56 @@ This reflection:
 > I wrote this after seeing a pattern in how people use platforms like BotPress. It felt like seeing something obvious I'd overlooked many times before. The moment felt like recognition more than invention.
 
 This section helps make the insight **alive and transparent**—not just a statement, but a logged experience.
+
+---
+
+## Section 9: Supports Instructions
+
+**Purpose:** Links this insight to the instruction modules it helps explain, interpret, or enforce.
+
+---
+
+### What It Is
+
+This section tells CROP-AI which instruction files are **scaffolded** by this insight. These links allow CROP-AI to **load insights alongside instructions**, ensuring contextual interpretation and mutation enforcement during runtime.
+
+---
+
+### Why It Matters
+
+- **Instructions explain what to do**
+- **Insights explain why it's done that way**
+
+If an instruction was influenced by an insight, that insight becomes part of its **execution context**. CROP-AI will treat insights as **enforcement lenses** during boot and mutation.
+
+---
+
+### Key Behaviors
+
+- CROP-AI must load these insights into working memory when initializing or mutating supported instruction files.
+- Insight absence during boot should be logged as an incomplete context.
+- Insights may refine how instructions are interpreted, mutated, or blocked.
+
+## Section 10: Proposed Mutations
+
+**Purpose:** Allows the insight to formally recommend structural or behavioral changes to instructions.
+
+---
+
+### What It Is
+
+This section lists specific mutations the insight proposes. These are **not auto-executed**—they serve as mutation seeds, which must still be validated via logic loops and enforced by instruction mutation policies.
+
+---
+
+### Why It Matters
+
+CROP is reflexive. That means insights don't just describe—they **act**. A well-formed insight may discover contradiction, instability, or opportunity in the instruction set, and formally propose corrective mutation.
+
+---
+
+### Key Behaviors
+
+- Each proposed mutation is **contextual**, not enforced by default.
+- CROP-AI must use logic loops to test, validate, and scaffold these proposals.
+- Accepted proposals should be recorded in the mutated instruction’s `interactions` section.

@@ -132,3 +132,19 @@ reflection:
     - This must be introspective—not explanatory.
     - Purpose: expose the reflexive, evolving nature of the CROP-AI system.
     - Acceptable to include uncertainty, contradiction, or failure to resolve.
+	
+supports_instructions:
+  description: >
+    A list of instruction filenames that this insight directly supports, scaffolds, or justifies.
+    - Use filenames (e.g. instruction-mutation.md, reflexivity.md).
+    - Indicates that the insight should be loaded into memory when interpreting these instructions.
+    - Enables context-aware execution and interpretation enforcement.
+
+proposes_mutation:
+  description: >
+    A list of proposed structural or behavioral changes to instruction files.
+    - Each item must include:
+        - file: the instruction file to mutate
+        - change: a brief description of the proposed mutation
+    - These are not enacted automatically. They require confirmation via logic loop and must comply with the mutation policy of the instruction.
+
