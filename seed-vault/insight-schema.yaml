@@ -1,14 +1,24 @@
 # === CROP-AI INTERNAL INSIGHT GENERATION TEMPLATE ===
 # DO NOT SKIP OR OMIT FIELDS. THIS TEMPLATE IS SELF-CONTAINED AND EXHAUSTIVE.
 
+index:
+  description: >
+    A unique 3-digit identifier for the insight.
+    - Must be formatted as a string, zero-padded to three digits (e.g. "001", "042", "105").
+    - Used for file naming, cross-referencing, and insight traceability.
+    - Must match the filename (e.g. insight-005.yaml → index: "005").
+    - Cannot be reused across the Seed Vault.
+    - This is the canonical reference ID for the insight and is required for indexing.
+
 title:
   description: >
-    Generate a title for the insight in the format: "Insight [XXX] — [Short, expressive name]".
-    - [XXX] is a unique 3-digit insight ID.
+    The human-readable name of the insight.
+    - Must follow this format exactly: "Insight [XXX] — [Short, expressive name]".
+    - [XXX] must match the value of the `index` field.
     - The name must summarize the insight in 3–7 words.
     - Avoid technical language unless the term is central to the paradigm.
     - The title must serve as a reusable memory handle. It must be distinct from the Principle line.
-    - It should *not* contain colons, dashes (besides the format), or markdown.
+    - It should not contain colons, extra dashes (beyond format), or markdown.
     - Must never repeat the Principle line verbatim.
 
 metadata:
