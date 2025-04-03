@@ -1,1 +1,6 @@
+# Ghostwritter backup files
 *.backup
+
+# Build directory and files
+/build/
+*.zip
