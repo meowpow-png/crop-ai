@@ -146,5 +146,6 @@ proposes_mutation:
     - Each item must include:
         - file: the instruction file to mutate
         - change: a brief description of the proposed mutation
-    - These are not enacted automatically. They require confirmation via logic loop and must comply with the mutation policy of the instruction.
-
+    - Optional:
+        - affected_docs: list of full documentation files affected by this mutation
+    - These are not enacted automatically. They require confirmation via logic loop and must comply with the instruction’s mutation policy.
