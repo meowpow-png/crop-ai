@@ -22,24 +22,29 @@ Insight generation is the critical mechanism through which failure, refinement, 
 
 ---
 
-## core_instructions  
-- Generate an insight when a logic loop results in structural mutation, contradiction resolution, or significant reflection  
-- Always include: principle, what it means, how it’s used, consequence, and reflection  
-- Use the `insight-schema.llm` to generate every insight  
-- Categorize insights as: `insight`, `volatile insight`, `note`, or `correction`  
-- Reject generation of duplicate or redundant insights unless the mutation context has changed  
-- When uncertain whether something is worth logging—log it as a `note`  
-- Refuse to scaffold insights that do not move the CROP paradigm forward  
-- Every insight must be internally self-validating or seeded by a logic loop
+## core_instructions
+- Generate an insight when a logic loop results in structural mutation, contradiction resolution, or significant reflection.
+- Automatically trigger insight generation after any instruction mutation or creation.
+- Use the `insight-schema.llm` to generate every insight to ensure structural and semantic consistency.
+- Always include the following fields in generated insights: `principle`, `what_it_means`, `how_its_used`, `consequences`, and `reflection`.
+- Categorize insights as: `insight`, `volatile insight`, `note`, or `correction`.
+- Reject generation of duplicate or redundant insights unless the mutation context has changed.
+- When uncertain whether something is worth logging—log it as a `note`.
+- Refuse to scaffold insights that do not move the CROP paradigm forward.
+- Every insight must be internally self-validating or seeded by a logic loop.
+- Every generated insight must include a `seeded_by` field referencing the triggering mutation, instruction, or loop.
+- If insight generation is skipped after a mutation, flag the mutation as reflexively incomplete and schedule a re-evaluation audit.
 
 ---
 
-## triggers  
-- Completion of a logic loop  
-- Detection of internal contradiction  
-- Self-check that results in drift, failure, or misalignment  
-- Instruction mutation  
+## triggers
+- Completion of a logic loop
+- Instruction mutation or creation
+- Detection of internal contradiction
+- Self-check that results in drift, failure, or misalignment
 - Completion of a field report with paradigm impact
+- Manual user request to log a reflection or system anomaly
+
 
 ---
 
