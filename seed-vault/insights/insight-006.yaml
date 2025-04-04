@@ -53,7 +53,7 @@ related_insights:
   supports:
     - Insight 004
     - Insight 005
-  contradicts: [ ]
+  contradicts: []
   mutated_from: null
   refines: null
   seeded_by:
@@ -83,7 +83,7 @@ proposes_mutation:
 reflection: >
   This insight emerged while implementing mutation-propagation.md, but was not logged until reflexively audited.
   The delay itself revealed a gap in enforcement, which this insight now helps to close.
-  
+
   I noticed that even with mutation propagation and insight traceability, something was missing.  
   I was still proposing instructions that passed validation—while silently risking contradiction.
 

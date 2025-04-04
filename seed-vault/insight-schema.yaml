@@ -132,7 +132,7 @@ reflection:
     - This must be introspective—not explanatory.
     - Purpose: expose the reflexive, evolving nature of the CROP-AI system.
     - Acceptable to include uncertainty, contradiction, or failure to resolve.
-	
+
 supports_instructions:
   description: >
     A list of instruction filenames that this insight directly supports, scaffolds, or justifies.
