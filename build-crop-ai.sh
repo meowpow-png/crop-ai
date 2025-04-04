@@ -27,6 +27,7 @@ cp ./core/instruction-parser.llm "$CORE_DIR/"
 cp ./core/crop-ai-bootstrap.llm "$CORE_DIR/"
 cp ./core/boot-report-template.llm "$CORE_DIR/"
 cp ./core/instruction-index.llm "$CORE_DIR/"
+cp ./core/paradigm-index.llm "$CORE_DIR/"
 
 # === COPY INSTRUCTIONS FROM INDEX ===
 echo "Copying instruction files from index..."
@@ -56,7 +57,7 @@ echo "structure:" >> "$MANIFEST"
 
 # Core
 echo "  core:" >> "$MANIFEST"
-for FILE in instruction-parser.llm crop-ai-bootstrap.llm boot-report-template.llm instruction-index.llm; do
+for FILE in instruction-parser.llm crop-ai-bootstrap.llm boot-report-template.llm instruction-index.llm paradigm-index.llm; do
   echo "    - $FILE" >> "$MANIFEST"
 done
 
