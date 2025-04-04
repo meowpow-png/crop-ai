@@ -6,8 +6,10 @@ BUILD_DIR="build"
 CORE_DIR="$BUILD_DIR/core"
 INSTRUCTIONS_DIR="$BUILD_DIR/instructions"
 VAULT_DIR="$BUILD_DIR/seed-vault/insights"
+PARA_DIR="$BUILD_DIR/paradigm"
 MANIFEST="$BUILD_DIR/crop-ai-manifest.txt"
-INDEX_FILE="./core/instruction-index.llm"
+INSTR_INDEX_FILE="./core/instruction-index.llm"
+PARA_INDEX_FILE="./core/paradigm-index.llm"
 
 # === CLEANUP ===
 echo "Cleaning build directory..."
@@ -18,6 +20,7 @@ echo "Creating directory structure..."
 mkdir -p "$CORE_DIR"
 mkdir -p "$INSTRUCTIONS_DIR"
 mkdir -p "$VAULT_DIR"
+mkdir -p "$PARA_DIR"
 
 # === COPY STATIC CORE FILES ===
 cp ./core/instruction-parser.llm "$CORE_DIR/"
@@ -27,8 +30,19 @@ cp ./core/instruction-index.llm "$CORE_DIR/"
 
 # === COPY INSTRUCTIONS FROM INDEX ===
 echo "Copying instruction files from index..."
-awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /path:/) print $(i+1) }' "$INDEX_FILE" | while read -r FILE; do
+awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /path:/) print $(i+1) }' "$INSTR_INDEX_FILE" | while read -r FILE; do
   cp ".$FILE" "$INSTRUCTIONS_DIR/"
+done
+
+# === COPY PARADIGM FILES ===
+cp ./paradigm/crop-manifesto.md "$PARA_DIR/"
+cp ./paradigm/crop-mutation-protocols.md "$PARA_DIR/"
+cp ./paradigm/crop-guerilla-dev-doc.md "$PARA_DIR/"
+
+# === COPY PARADIGMS FROM INDEX ===
+echo "Copying paradigm files from index..."
+awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /path:/) print $(i+1) }' "$PARA_INDEX_FILE" | while read -r FILE; do
+  cp "./$FILE" "$PARA_DIR/"
 done
 
 # === COPY INSIGHTS ===
@@ -48,7 +62,14 @@ done
 
 # Instructions
 echo "  instructions:" >> "$MANIFEST"
-awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /^path:/) print $(i+1) }' "$INDEX_FILE" | while read -r FILE; do
+awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /^path:/) print $(i+1) }' "$INSTR_INDEX_FILE" | while read -r FILE; do
+  FILENAME=$(basename "$FILE")
+  echo "    - $FILENAME" >> "$MANIFEST"
+done
+
+# Paradigms
+echo "  paradigms:" >> "$MANIFEST"
+awk '/path:/ { for (i=1; i<=NF; i++) if ($i ~ /^path:/) print $(i+1) }' "$PARA_INDEX_FILE" | while read -r FILE; do
   FILENAME=$(basename "$FILE")
   echo "    - $FILENAME" >> "$MANIFEST"
 done

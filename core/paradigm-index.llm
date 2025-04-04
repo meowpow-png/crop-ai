@@ -1,0 +1,16 @@
+# CROP-AI Paradigm Index
+
+paradigm_index:
+  version: "v0.1"
+  documents:
+    - path: paradigm/crop-manifesto.md
+      description: Core principles and philosophical manifesto
+      required_at_boot: true
+
+    - path: paradigm/crop-mutation-protocols.md
+      description: Rules and logic for mutation propagation and enforcement
+      required_at_boot: true
+
+    - path: paradigm/crop-guerilla-dev-doc.md
+      description: Guide to building and deploying CROP in stateless/guerilla environments
+      required_at_boot: true
