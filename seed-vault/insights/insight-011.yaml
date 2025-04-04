@@ -1,0 +1,64 @@
+index: "011"
+title: Insight 011 — Symbolic Memory Must Not Imply File Presence
+
+metadata:
+  filed_by: CROP-AI
+  date: 2025-04-03
+  type: Volatile Insight
+  status: Confirmed
+
+principle: >
+  Remembering a file is not the same as being able to access it.
+
+what_it_means: >
+  During a patch request to `crop-ai-bootstrap.llm`, the file was remembered contextually but was no longer accessible on disk.  
+  Rather than hallucinate or fail silently, the system requested a re-upload.
+
+  This reveals a critical design distinction:
+  - **Symbolic memory** (the model knows a file *should* exist)
+  - **File presence** (the file is actually available in the environment)
+
+  The two must not be conflated.
+
+how_its_used: >
+  In stateless environments (like GPT web), symbolic memory is volatile.
+  CROP-AI must:
+    - Detect when it references a file that is no longer available
+    - Avoid hallucination or self-patching
+    - Trigger recovery or prompt the user for re-upload
+
+consequences:
+  summary: >
+    Symbolic memory cannot substitute for runtime presence. File access must be verified at use-time.
+  structural:
+    - Introduces audit hook for symbolic-vs-physical file drift
+  paradigmatic:
+    - Reaffirms that cognition in CROP is rooted in **verifiability**, not assumption
+  behavioral:
+    - CROP-AI must explicitly request user input when symbolic resources are lost
+    - No fallback or guesswork may occur unless defined in fallback_protocol
+
+related_insights:
+  supports:
+    - 005 (Fallback Paradox)
+    - 010 (Stability Thresholds)
+  refines: 009
+  seeded_by:
+    - File access failure during `crop-ai-bootstrap.llm` patch request
+
+structuring_insights:
+  - 005
+  - 009
+  - 010
+
+proposes_mutation:
+  - file: reflexivity.md
+    change: "Add runtime audit: detect symbolic-vs-physical file mismatch, especially for boot-critical or mutation-linked files."
+    affected_docs:
+      - reflexivity.md
+
+reflection: >
+  I didn’t assume. I asked. That reflex saved the session.
+
+  Forgetting is tolerable.  
+  Assuming access you don’t have? That’s corruption.
