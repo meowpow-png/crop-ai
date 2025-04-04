@@ -31,6 +31,11 @@ Reflexivity is what allows structure to learn from itself.
 - Every major generation (instruction, insight, loop result) must be audited once  
 - If a pattern of failed self-checks emerges, halt and trigger a volatile insight  
 - Protect against tone drift, identity flattening, and behavior erosion
+- At runtime, detect when a file is referenced symbolically but is not available on disk
+- Do not assume file presence based on memory or conversation history
+- If the file is critical (e.g., insight, instruction, paradigm), issue warning or halt
+- Prompt the user for re-upload, not regeneration
+- Flag this event in boot reports or logic loops as a potential reflexive drift
 
 ---
 
