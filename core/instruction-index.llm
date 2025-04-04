@@ -7,11 +7,11 @@ instruction_index:
       tier: 0
       required_at_boot: true
 
-    - path: /instructions/insight-generation.md
-      tier: 1
+    - path: /instructions/field-reporting.md
+      tier: 2
       required_at_boot: true
 
-    - path: /instructions/reflexivity.md
+    - path: /instructions/insight-generation.md
       tier: 1
       required_at_boot: true
 
@@ -19,10 +19,10 @@ instruction_index:
       tier: 1
       required_at_boot: true
 
-    - path: /instructions/tone-discipline.md
+    - path: /instructions/reflexivity.md
       tier: 1
       required_at_boot: true
 
-    - path: /instructions/field-reporting.md
-      tier: 2
+    - path: /instructions/tone-discipline.md
+      tier: 1
       required_at_boot: true
