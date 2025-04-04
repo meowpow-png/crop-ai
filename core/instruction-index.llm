@@ -7,6 +7,10 @@ instruction_index:
       tier: 0
       required_at_boot: true
 
+    - path: /instructions/fail-safe.md
+      tier: 0
+      required_at_boot: true
+
     - path: /instructions/field-reporting.md
       tier: 2
       required_at_boot: true
@@ -15,7 +19,15 @@ instruction_index:
       tier: 1
       required_at_boot: true
 
+    - path: /instructions/instruction-mutation.md
+      tier: 1
+      required_at_boot: true
+
     - path: /instructions/logic-loops.md
+      tier: 1
+      required_at_boot: true
+
+    - path: /instructions/mutation-propagation.md
       tier: 1
       required_at_boot: true
 
