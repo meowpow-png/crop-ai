@@ -33,7 +33,7 @@ done
 
 # === COPY INSIGHTS ===
 echo "Copying insights..."
-cp ./seed-vault/insights/*.md "$VAULT_DIR/" 2>/dev/null
+cp ./seed-vault/insights/*.yaml "$VAULT_DIR/" 2>/dev/null
 
 # === GENERATE MANIFEST ===
 echo "manifest_version: 1.0" > "$MANIFEST"
@@ -56,7 +56,7 @@ done
 # Insights
 echo "  seed-vault:" >> "$MANIFEST"
 echo "    insights:" >> "$MANIFEST"
-find ./seed-vault/insights -type f -name "*.md" | while read -r INSIGHT; do
+find ./seed-vault/insights -type f -name "*.yaml" | while read -r INSIGHT; do
   FILENAME=$(basename "$INSIGHT")
   echo "      - $FILENAME" >> "$MANIFEST"
 done
