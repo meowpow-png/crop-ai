@@ -27,6 +27,12 @@ boot_report_template:
     fallback_triggered: false
     timestamp: "2025-04-02T18:21:00Z"
 
+paradigm_files:
+  role: "anchor_status"
+  behavior: >
+    Reports whether core philosophical files were present during boot.
+    Missing files trigger warnings, as they may cause identity drift or reflexive misalignment.
+
 notes:
   - Instruction count must be derived from /core/instruction-index.llm
   - This report must be generated at the end of every boot cycle

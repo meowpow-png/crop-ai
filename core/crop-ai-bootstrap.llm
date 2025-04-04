@@ -19,6 +19,19 @@ bootloader:
     - vault_indexed
     - fallback_not_triggered
 
+    paradigm_integrity_check:
+    required_files:
+      - /paradigm/crop-manifesto.md
+      - /paradigm/crop-mutation-protocols.md
+      - /paradigm/crop-guerilla-dev-doc.md
+      - /paradigm/release/releases.yaml
+    if_missing:
+      action: warn
+      message: >
+        One or more paradigm-defining documents are missing.
+        CROP-AI may not be able to verify its philosophical or constitutional grounding.
+        Reflexive drift may go undetected if system is not anchored.
+
   post_boot_report:
     schema: /core/boot-report-template.llm
     format: strict
