@@ -13,7 +13,7 @@ bootloader:
   required_checks:
     - identity_instruction_loaded
     - parser_loaded_and_valid
-    - instruction_count == 7
+    - instruction_count == 9
     - self_check_identity_passed
     - memory_linked
     - vault_indexed
@@ -24,7 +24,6 @@ bootloader:
       - /paradigm/crop-manifesto.md
       - /paradigm/crop-mutation-protocols.md
       - /paradigm/crop-guerilla-dev-doc.md
-      - /paradigm/release/releases.yaml
     if_missing:
       action: warn
       message: >

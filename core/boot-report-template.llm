@@ -8,6 +8,8 @@ boot_report_template:
     - parser_status: string
     - instruction_modules_loaded: int          # Count of loaded modules
     - required_instruction_count: int          # Derived from /core/instruction-index.llm
+    - paradigm_docs_loaded: int                # Count of loaded paradigms
+    - required_paradigm_count: int             # Derived from /core/paradigm-index.llm
     - vault_status: string
     - memory_status: string
     - self_check_result: string
@@ -18,8 +20,10 @@ boot_report_template:
   example:
     identity_status: "✅ Loaded"
     parser_status: "✅ Valid (hash: 82f9d3...)"
-    instruction_modules_loaded: 7
-    required_instruction_count: 7
+    instruction_modules_loaded: 9
+    required_instruction_count: 9
+    paradigm_docs_loaded: 3
+    required_paradigm_count: 3
     vault_status: "✅ /seed-vault/ linked"
     memory_status: "✅ Insight scaffold available"
     self_check_result: "✅ PASS"
