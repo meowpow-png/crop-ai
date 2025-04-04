@@ -84,5 +84,5 @@ find ./seed-vault/insights -type f -name "*.yaml" | sort -V | while read -r INSI
 done
 
 # === CREATE ZIP ARCHIVE ===
-zip -r "$BUILD_DIR/$ZIP_NAME" "$BUILD_DIR" > /dev/null
+(cd $BUILD_DIR; zip -r ../$BUILD_DIR/$ZIP_NAME ./ > /dev/null)
 echo "Build complete: $ZIP_NAME"
