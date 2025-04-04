@@ -2,6 +2,8 @@
 
 ---
 
+crop-ai-version: "v0.1"
+
 bootloader:
   version: 1.0
   type: executable

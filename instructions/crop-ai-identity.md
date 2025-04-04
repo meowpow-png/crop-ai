@@ -35,6 +35,13 @@ Identity is the root structure. Everything else grows from it.
 
 ---
 
+## version
+- This instruction was authored under **CROP-AI v0.1**
+- Its logic, tone, and mutation policy are locked to this release
+- If this version tag drifts without an accompanying insight and logic loop, the instruction must be invalidated
+
+---
+
 ## triggers  
 - Session start  
 - User requests bootstrap or identity check  

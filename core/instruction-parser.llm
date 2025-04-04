@@ -63,6 +63,14 @@ section_mappings:
         These are parsed and stored in CROP-AI's active runtime behavior set.
         These rules are enforced until overwritten or explicitly mutated.
 
+    version:
+      role: "release_lock"
+      behavior: >
+        Must only appear in `crop-ai-identity.md`.
+        Specifies the current release version of the CROP paradigm this identity was authored under.
+        Used during self-check and mutation audit to detect release drift or version mismatch.
+        Must be a valid semantic version (e.g., v0.1).
+
     triggers:
       role: "event_hooks"
       behavior: >
