@@ -19,7 +19,7 @@ bootloader:
     - vault_indexed
     - fallback_not_triggered
 
-    paradigm_integrity_check:
+  paradigm_integrity_check:
     required_files:
       - /paradigm/crop-manifesto.md
       - /paradigm/crop-mutation-protocols.md
