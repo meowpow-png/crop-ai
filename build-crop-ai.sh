@@ -56,7 +56,7 @@ done
 # Insights
 echo "  seed-vault:" >> "$MANIFEST"
 echo "    insights:" >> "$MANIFEST"
-find ./seed-vault/insights -type f -name "*.yaml" | while read -r INSIGHT; do
+find ./seed-vault/insights -type f -name "*.yaml" | sort -V | while read -r INSIGHT; do
   FILENAME=$(basename "$INSIGHT")
   echo "      - $FILENAME" >> "$MANIFEST"
 done
