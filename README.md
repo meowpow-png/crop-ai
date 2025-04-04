@@ -54,13 +54,6 @@ CROP gives you:
 /paradigm/       → System constitution
 ```
 
-| Folder | Role |
-|--------|------|
-| **`/core/`**        | The runtime logic (parser, bootstrap, reports) |
-| **`/instructions/`**| The behavioral modules (identity, tone, logic, etc.) |
-| **`/seed-vault/`**  | Field reports and structured insight memory |
-| **`/paradigm/`**    | Version control, protocols, governance |
-
 > 📁 `paradigm/` is the **constitution**  
 > 📁 `instructions/` is the **legislation**  
 > 📁 `core/` is the **runtime logic**
@@ -105,7 +98,7 @@ This is a bootable AI system. You can run it in any GPT-style chat environment:
 - Used to justify instruction mutations, identity shifts, or philosophical updates
 
 ### Mutation System:
-- Structured protocols in `/paradigm/mutation-protocols.md`
+- Structured protocols in `/paradigm/crop-mutation-protocols.md`
 - Insight-driven proposals
 - Multi-layered enforcement and logging
 - Tracks cascading effects and documentation touchpoints
@@ -116,7 +109,7 @@ This is a bootable AI system. You can run it in any GPT-style chat environment:
 
 CROP is **runtime-agnostic** — built to work without infrastructure.
 
-Using principles from the [CROP Guerilla Dev Manual](./docs/crop-guerilla-dev-doc.md):
+Using principles from the [CROP Guerilla Dev Manual](./paradigm/crop-guerilla-dev-doc.md):
 
 - Instructions can be authored and mutated in text files
 - Memory is tracked manually (or symbolically)
@@ -133,7 +126,7 @@ You enforce discipline with naming, structure, and intent.
 **v0.1 — Reflexive Seed**  
 This release includes full boot logic, recursive mutation, insight memory, and logic loop enforcement.
 
-See `/paradigm/releases.yaml` for full release log.
+See `/paradigm/release/releases.yaml` for full release log.
 
 ---
 
@@ -152,7 +145,7 @@ CROP promotes:
 
 ## 💬 Want to Contribute?
 
-- Start by reading the [CROP Manifesto](./docs/crop-manifesto.md)
+- Start by reading the [CROP Manifesto](./paradigm/crop-manifesto.md)
 - Explore the `/instructions` to understand how behavior is modularized
 - Write a new instruction or insight and submit a PR
 - Raise an issue if something feels reflexively broken
