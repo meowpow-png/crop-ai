@@ -1,0 +1,38 @@
+# CROP Paradigm Release Ledger
+
+- version: "v0.1"
+  codename: "Reflexive Seed"
+  date: 2025-04-03
+  summary: >
+    First public release of the CROP-AI system, marking the transition from experimental reflexivity 
+    to a structured, bootable, instruction-driven agent capable of insight generation and self-auditing.
+
+  highlights:
+    - Instruction-based boot architecture with fallback and failsafe logic
+    - Core parser schema for instruction interpretation
+    - Structured insight model with mutation tracking and reflexive linking
+    - Loop-based contradiction detection and mutation triggering
+    - Seed Vault and Field Report system for documenting real-world CROP-like behavior
+
+  instructions:
+    - crop-ai-identity.md
+    - crop-ai-bootstrap.llm
+    - instruction-parser.llm
+    - reflexivity.md
+    - logic-loops.md
+    - insight-generation.md
+    - field-reporting.md
+    - tone-discipline.md
+    - instruction-mutation.md
+    - mutation-propagation.md
+    - fail-safe.md
+
+  insights:
+    - insight-001.yaml through insight-011.yaml
+
+  notes:
+    - Reflexivity guardrails: plateau logic, saturation index (RSI) - not yet implemented
+    - Diff tracking, live mutation staging, and documentation regeneration are proposed but not yet implemented
+    - `stability-auditor.md` is scaffolding-proposed but not yet committed
+
+  changelog_link: /paradigm/release/changelog-v0.1.md
